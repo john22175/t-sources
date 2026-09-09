@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "kind": "slide-show",
+  "title": "VisionLink_Safety_Overview (2).pptx",
+  "intervalSeconds": 10,
+  "slides": [
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-1.png",
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-2.png",
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-3.png",
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-4.png",
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-5.png",
+    ".presentations/Default/VisionLink_Safety_Overview (2)/slide-6.png"
+  ]
+}

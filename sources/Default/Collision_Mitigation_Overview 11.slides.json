@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "kind": "slide-show",
+  "title": "Collision_Mitigation_Overview 11.pptx",
+  "intervalSeconds": 10,
+  "slides": [
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-1.png",
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-2.png",
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-3.png",
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-4.png",
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-5.png",
+    ".presentations/Default/Collision_Mitigation_Overview 11/slide-6.png"
+  ]
+}
