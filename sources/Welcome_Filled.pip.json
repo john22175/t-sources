@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "kind": "picture-in-picture",
+  "baseSourcePath": "Welcome_blank.png",
+  "overlaySourcePath": "logo.png",
+  "layout": {
+    "x": 0.15550723287202636,
+    "y": 0.293047881473925,
+    "width": 0.23071542657976002,
+    "height": 0.23071542657976002
+  },
+  "updatedAt": "2026-09-09T13:23:59.242Z"
+}
