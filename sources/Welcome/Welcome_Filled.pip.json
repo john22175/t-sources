@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "kind": "picture-in-picture",
+  "baseSourcePath": "Welcome/Welcome_blank.png",
+  "overlaySourcePath": "Pasted_20260909142430831.png",
+  "layout": {
+    "x": 0.13336392842440697,
+    "y": 0.27257757865763377,
+    "width": 0.24173801260222344,
+    "height": 0.24173801260222344
+  },
+  "removeBackground": {
+    "color": "#000000",
+    "tolerance": 32
+  },
+  "updatedAt": "2026-09-09T14:25:00.377Z"
+}
