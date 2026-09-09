@@ -4,14 +4,14 @@
   "baseSourcePath": "Welcome/Welcome_blank.png",
   "overlaySourcePath": "Welcome/Temp/Welcome_Filled_overlay.png",
   "layout": {
-    "x": 0.1435215912415551,
-    "y": 0.2490023686535126,
-    "width": 0.2376291594090528,
-    "height": 0.2376291594090528
+    "x": 0.141395276609075,
+    "y": 0.24333228294525183,
+    "width": 0.24140939823664254,
+    "height": 0.24140939823664254
   },
   "removeBackground": {
     "color": "#000000",
     "tolerance": 32
   },
-  "updatedAt": "2026-09-09T19:35:08.605Z"
+  "updatedAt": "2026-09-09T19:42:23.579Z"
 }
