@@ -4,8 +4,8 @@
   "baseSourcePath": "Welcome/Welcome_blank.png",
   "overlaySourcePath": "Pasted_20260909134059517.png",
   "layout": {
-    "x": 0.64,
-    "y": 0.06,
+    "x": 0.5299403015635435,
+    "y": 0.4772817307540354,
     "width": 0.3,
     "height": 0.3
   },
@@ -13,5 +13,5 @@
     "color": "#000000",
     "tolerance": 32
   },
-  "updatedAt": "2026-09-09T13:52:48.992Z"
+  "updatedAt": "2026-09-09T13:56:50.786Z"
 }
