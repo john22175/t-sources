@@ -1,0 +1,94 @@
+name: Render PowerPoint slides
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sources/**/*.ppt"
+      - "sources/**/*.pptx"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: render-powerpoint-main
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install the presentation renderer
+        run: |
+          set -euo pipefail
+          if ! command -v libreoffice >/dev/null || ! command -v pdftoppm >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y libreoffice-core libreoffice-impress poppler-utils
+          fi
+
+      - name: Render PowerPoints and write slideshow manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          changed=0
+          while IFS= read -r -d '' presentation; do
+            relative="${presentation#sources/}"
+            stem="${relative%.*}"
+            rendered_directory="sources/.presentations/${stem}"
+            manifest="sources/${stem}.slides.json"
+            work_directory="$(mktemp -d)"
+            trap 'rm -rf "$work_directory"' EXIT
+
+            rm -rf -- "$rendered_directory"
+            mkdir -p -- "$rendered_directory"
+            libreoffice --headless --convert-to pdf --outdir "$work_directory" "$presentation"
+            pdf="$(find "$work_directory" -maxdepth 1 -type f -iname '*.pdf' -print -quit)"
+            if [[ -z "$pdf" ]]; then
+              echo "LibreOffice did not create a PDF for $presentation" >&2
+              exit 1
+            fi
+            pdftoppm -png -r 150 "$pdf" "$rendered_directory/slide"
+
+            python3 - "$presentation" "$rendered_directory" "$manifest" <<'PY'
+            import json
+            import pathlib
+            import sys
+
+            presentation = pathlib.PurePosixPath(sys.argv[1])
+            rendered = pathlib.Path(sys.argv[2])
+            manifest = pathlib.Path(sys.argv[3])
+            slides = sorted(rendered.glob("slide-*.png"))
+            if not slides:
+                raise SystemExit(f"No slide images were rendered for {presentation}")
+            manifest.parent.mkdir(parents=True, exist_ok=True)
+            manifest.write_text(json.dumps({
+                "version": 1,
+                "kind": "slide-show",
+                "title": presentation.name,
+                "intervalSeconds": 10,
+                "slides": [str(slide).replace("\\", "/").removeprefix("sources/") for slide in slides],
+            }, indent=2) + "\n", encoding="utf-8")
+            PY
+            rm -rf -- "$work_directory"
+            trap - EXIT
+            changed=1
+          done < <(find sources -type f \( -iname '*.ppt' -o -iname '*.pptx' \) -print0)
+
+          if [[ "$changed" -eq 0 ]]; then
+            echo "No PowerPoint files found."
+            exit 0
+          fi
+          git add -A -- sources/.presentations sources
+          if git diff --cached --quiet; then
+            echo "Rendered slides are already current."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "source-manager: render PowerPoint slides"
+          git push
