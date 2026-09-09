@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "kind": "slide-show",
+  "title": "Cat_Command_Overview.pptx",
+  "intervalSeconds": 10,
+  "slides": [
+    ".presentations/Safety/Cat_Command_Overview/slide-1.png",
+    ".presentations/Safety/Cat_Command_Overview/slide-2.png",
+    ".presentations/Safety/Cat_Command_Overview/slide-3.png",
+    ".presentations/Safety/Cat_Command_Overview/slide-4.png",
+    ".presentations/Safety/Cat_Command_Overview/slide-5.png",
+    ".presentations/Safety/Cat_Command_Overview/slide-6.png"
+  ]
+}
