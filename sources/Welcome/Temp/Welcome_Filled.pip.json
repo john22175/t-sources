@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "kind": "picture-in-picture",
+  "baseSourcePath": "Welcome/Welcome_blank.png",
+  "overlaySourcePath": "Welcome/Temp/Welcome_Filled_overlay.png",
+  "layout": {
+    "x": 0.12651168737219295,
+    "y": 0.294362918053037,
+    "width": 0.23573914219517936,
+    "height": 0.23573914219517936
+  },
+  "removeBackground": {
+    "color": "#000000",
+    "tolerance": 32
+  },
+  "updatedAt": "2026-09-09T16:21:42.443Z"
+}
