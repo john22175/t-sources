@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "kind": "slide-show",
+  "title": "1.pptx",
+  "intervalSeconds": 10,
+  "slides": [
+    ".presentations/Default/1/slide-01.png",
+    ".presentations/Default/1/slide-02.png",
+    ".presentations/Default/1/slide-03.png",
+    ".presentations/Default/1/slide-04.png",
+    ".presentations/Default/1/slide-05.png",
+    ".presentations/Default/1/slide-06.png",
+    ".presentations/Default/1/slide-07.png",
+    ".presentations/Default/1/slide-08.png",
+    ".presentations/Default/1/slide-09.png",
+    ".presentations/Default/1/slide-10.png",
+    ".presentations/Default/1/slide-11.png",
+    ".presentations/Default/1/slide-12.png"
+  ]
+}
