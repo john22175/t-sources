@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "kind": "slide-show",
+  "title": "2.pptx",
+  "intervalSeconds": 10,
+  "slides": [
+    ".presentations/Default/2/slide-1.png",
+    ".presentations/Default/2/slide-2.png"
+  ]
+}
